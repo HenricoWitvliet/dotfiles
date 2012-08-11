@@ -53,10 +53,15 @@ set showcmd
 
 " Highlight searches (use <C-L> to temporarily turn off highlighting; see the
 " mapping of <C-L> below)
-set hlsearch
+nnoremap / /\v
+vnoremap / /\v
 set ignorecase
 set smartcase
+set gdefault
 set incsearch
+set showmatch
+set hlsearch
+nnoremap <leader><space> :noh<cr>
 
 " Modelines have historically been a source of security vulnerabilities. As
 " such, it may be a good idea to disable them and use the securemodelines
