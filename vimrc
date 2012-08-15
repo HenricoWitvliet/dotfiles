@@ -14,6 +14,8 @@
 call pathogen#infect()
 call pathogen#helptags()
 
+let mapleader = ','
+
 " Set 'nocompatible' to ward off unexpected things that your distro might
 " have made, as well as sanely reset options when re-sourcing .vimrc
 
@@ -53,8 +55,8 @@ set showcmd
 
 " Highlight searches (use <C-L> to temporarily turn off highlighting; see the
 " mapping of <C-L> below)
-nnoremap / /\v
-vnoremap / /\v
+" nnoremap / /\v
+" vnoremap / /\v
 set ignorecase
 set smartcase
 set gdefault
@@ -152,10 +154,6 @@ set smarttab
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
 
-let mapleader = ','
-" nnoremap <silent> ,t :CommandT<CR>
-" nnoremap <silent> ,b :CommandTBuffer<CR>
-"
 
 set history=1000
 set wildmenu
@@ -163,5 +161,69 @@ set wildmode=list:longest
 set title
 set nowrap
 set showmatch
+
+"---------------------------------
+" extra opties
+
+" Better Completion
+set completeopt=longest,menuone,preview
+
+" Save when losing focus
+au FocusLost * :silent! wall
+
+" Resize splits when the window is resized
+au VimResized * :wincmd =
+
+" Unfuck my screen
+nnoremap <leader>u :syntax sync fromstart<cr>:redraw!<cr>
+
+" Clean trailing whitespace
+nnoremap <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
+
+" Source
+vnoremap <leader>S y:execute @@<cr>:echo 'Sourced selection.'<cr>
+nnoremap <leader>S ^vg_y:execute @@<cr>:echo 'Sourced line.'<cr>
+
+" Typos
+command! -bang E e<bang>
+command! -bang Q q<bang>
+command! -bang W w<bang>
+command! -bang QA qa<bang>
+command! -bang Qa qa<bang>
+command! -bang Wa wa<bang>
+command! -bang WA wa<bang>
+command! -bang Wq wq<bang>
+command! -bang WQ wq<bang>
+
+" Toggle [i]nvisible characters
+nnoremap <leader>i :set list!<cr>
+
+" Quick editing ----------------------------------------------------------- {{{
+
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>eo :vsplit ~/Dropbox/Org<cr>4j
+
+" Keep search matches in the middle of the window.
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" Open a Quickfix window for the last search.
+nnoremap <silent> <leader>? :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
+
+" Easy buffer navigation
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
+" Search the current file for what's currently in the search register and display matches
+nmap <silent> ,gs :vimgrep /<C-r>// %<CR>:ccl<CR>:cwin<CR><C-W>J:nohls<CR>
+
+" visual shifting (does not exit Visual mode)
+vnoremap < <gv
+vnoremap > >gv 
+
+set backupdir=/Users/macbook/.vim/.temp//
+set directory=/Users/macbook/.vim/.temp//
 
 "------------------------------------------------------------
