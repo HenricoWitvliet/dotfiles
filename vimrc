@@ -209,6 +209,11 @@ nnoremap N Nzzzv
 
 " Open a Quickfix window for the last search.
 nnoremap <silent> <leader>? :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
+" volgende van quickfix window (openen met :copen), voor gebruik met
+" :vim /regex/ files*
+nnoremap <C-N> :cn<cr>zzzv
+" Search the current file for what's currently in the search register and display matches
+nmap <silent> ,gs :vimgrep /<C-r>// %<CR>:ccl<CR>:cwin<CR><C-W>J:nohls<CR>
 
 " Easy buffer navigation
 noremap <C-h> <C-w>h
@@ -216,8 +221,8 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
-" Search the current file for what's currently in the search register and display matches
-nmap <silent> ,gs :vimgrep /<C-r>// %<CR>:ccl<CR>:cwin<CR><C-W>J:nohls<CR>
+" set working directory to current file's directory and show it
+nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
 " visual shifting (does not exit Visual mode)
 vnoremap < <gv
@@ -226,4 +231,21 @@ vnoremap > >gv
 set backupdir=/Users/macbook/.vim/.temp//
 set directory=/Users/macbook/.vim/.temp//
 
+" kopieren van en naar clipboard
+" Alleen F2, kopieren naar clipboard is echt nodig
+nmap <F1> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+imap <F1> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+nmap <F2> :.w !pbcopy<CR><CR>
+vmap <F2> :w !pbcopy<CR><CR>
+
+if has("gui_macvim")
+    set guifont=Monaco:h14
+    set fuopt+=maxhorz 
+"    set fu
+" elseif has("unix")
+"     "
+" elseif has("gui_win32")
+"     "
+endif
+" 
 "------------------------------------------------------------
