@@ -1,16 +1,7 @@
-" URL: http://vim.wikia.com/wiki/Example_vimrc
-" Authors: http://vim.wikia.com/wiki/Vim_on_Freenode
-" Description: A minimal, but feature rich, example .vimrc. If you are a
-"              newbie, basing your first .vimrc on this file is a good choice.
-"              If you're a more advanced user, building your own .vimrc based
-"              on this file is still a good idea.
-
 "------------------------------------------------------------
 " Features {{{1
 "
-" These options and commands enable some very useful features in Vim, that
-" no user should have to live without.
-
+" use pathogen for plugins
 call pathogen#infect()
 call pathogen#helptags()
 
@@ -31,64 +22,12 @@ syntax on
 
 
 "------------------------------------------------------------
-" Must have options {{{1
-"
-" These are highly recommended options.
-
-" One of the most important options to activate. Allows you to switch from an
-" unsaved buffer without saving it first. Also allows you to keep an undo
-" history for multiple files. Vim will complain if you try to quit without
-" saving, and swap files will keep you safe if your computer crashes.
-set hidden
-
-" Note that not everyone likes working this way (with the hidden option).
-" Alternatives include using tabs or split windows instead of re-using the same
-" window for multiple buffers, and/or:
-" set confirm
-" set autowriteall
-
-" Better command-line completion
-set wildmenu
-
-" Show partial commands in the last line of the screen
-set showcmd
-
-" Highlight searches (use <C-L> to temporarily turn off highlighting; see the
-" mapping of <C-L> below)
-" nnoremap / /\v
-" vnoremap / /\v
-set ignorecase
-set smartcase
-set gdefault
-set incsearch
-set showmatch
-set hlsearch
-nnoremap <leader><space> :noh<cr>
+" General settings {{{1
 
 " Modelines have historically been a source of security vulnerabilities. As
 " such, it may be a good idea to disable them and use the securemodelines
 " script, <http://www.vim.org/scripts/script.php?script_id=1876>.
 " set nomodeline
-
-
-"------------------------------------------------------------
-" Usability options {{{1
-"
-" These are options that users frequently set in their .vimrc. Some of them
-" change Vim's behaviour in ways which deviate from the true Vi way, but
-" which are considered to add usability. Which, if any, of these options to
-" use is very much a personal preference, but they are harmless.
-
-" Use case insensitive search, except when using capital letters
-set ignorecase
-set smartcase
-
-" Allow backspacing over autoindent, line breaks and start of insert action
-set backspace=indent,eol,start
-
-" When opening a new line and no filetype-specific indenting is enabled, keep
-" the same indent as the line you're currently on. Useful for READMEs, etc.
-set autoindent
 
 " Stop certain movements from always going to the first character of a line.
 " While this behaviour deviates from that of Vi, it does what most users
@@ -121,9 +60,6 @@ set mouse=a
 " "press <Enter> to continue"
 set cmdheight=2
 
-" Display line numbers on the left
-" set number
-
 " Quickly time out on keycodes, but never time out on mappings
 set notimeout ttimeout ttimeoutlen=200
 
@@ -132,6 +68,24 @@ set pastetoggle=<F11>
 
 
 "------------------------------------------------------------
+" Search settings {{{1
+"
+set hidden
+
+" Better command-line completion
+set wildmenu
+
+" Show partial commands in the last line of the screen
+set showcmd
+
+set ignorecase
+set smartcase
+set gdefault
+set incsearch
+set showmatch
+set hlsearch
+nnoremap <leader><space> :noh<cr>
+
 " Indentation options {{{1
 "
 " Indentation settings according to personal preference.
@@ -143,6 +97,13 @@ set softtabstop=4
 set tabstop=4
 set expandtab
 set smarttab
+
+" Allow backspacing over autoindent, line breaks and start of insert action
+set backspace=indent,eol,start
+
+" When opening a new line and no filetype-specific indenting is enabled, keep
+" the same indent as the line you're currently on. Useful for READMEs, etc.
+set autoindent
 
 
 "------------------------------------------------------------
@@ -198,10 +159,9 @@ command! -bang WQ wq<bang>
 " Toggle [i]nvisible characters
 nnoremap <leader>i :set list!<cr>
 
-" Quick editing ----------------------------------------------------------- {{{
+" Quick editing  {{{1
 
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>eo :vsplit ~/Dropbox/Org<cr>4j
 
 " Keep search matches in the middle of the window.
 nnoremap n nzzzv
@@ -212,8 +172,6 @@ nnoremap <silent> <leader>? :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
 " volgende van quickfix window (openen met :copen), voor gebruik met
 " :vim /regex/ files*
 nnoremap <C-N> :cn<cr>zzzv
-" Search the current file for what's currently in the search register and display matches
-nmap <silent> ,gs :vimgrep /<C-r>// %<CR>:ccl<CR>:cwin<CR><C-W>J:nohls<CR>
 
 " Easy buffer navigation
 noremap <C-h> <C-w>h
