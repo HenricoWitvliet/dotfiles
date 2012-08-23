@@ -186,17 +186,17 @@ nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 vnoremap < <gv
 vnoremap > >gv 
 
-set backupdir=/Users/macbook/.vim/.temp//
-set directory=/Users/macbook/.vim/.temp//
+set backupdir=$HOME/.vim/.temp//
+set directory=$HOME/.vim/.temp//
 
-" kopieren van en naar clipboard
-" Alleen F2, kopieren naar clipboard is echt nodig
-nmap <F1> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
-imap <F1> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
-nmap <F2> :.w !pbcopy<CR><CR>
-vmap <F2> :w !pbcopy<CR><CR>
 
 if has("gui_macvim")
+    " kopieren van en naar clipboard
+    " Alleen F2, kopieren naar clipboard is echt nodig
+    nmap <F1> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+    imap <F1> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+    nmap <F2> :.w !pbcopy<CR><CR>
+    vmap <F2> :w !pbcopy<CR><CR>
     set guifont=Monaco:h14
     set fuopt+=maxhorz 
 "    set fu
