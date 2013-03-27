@@ -20,6 +20,12 @@ filetype indent plugin on
 " Enable syntax highlighting
 syntax on
 
+au BufRead,BufNewFile *.nw    set filetype=noweb
+
+let noweb_backend = "tex"
+let noweb_language = "python"
+let noweb_fold_code = 1 
+
 
 "------------------------------------------------------------
 " General settings {{{1
