@@ -16,12 +16,12 @@
 [submodule "bundle/mw-utils"]
 	path = bundle/mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
-[submodule "bundle/snipmate-snippets"]
-	path = bundle/snipmate-snippets
-	url = https://github.com/honza/snipmate-snippets.git
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
 	url = git://github.com/garbas/vim-snipmate.git
+[submodule "bundle/snipmate-snippets"]
+	path = bundle/snipmate-snippets
+	url = https://github.com/vim-scripts/better-snipmate-snippet.git
 [submodule "bundle/repeat"]
 	path = bundle/repeat
 	url = https://github.com/tpope/vim-repeat.git
@@ -40,9 +40,9 @@
 [submodule "bundle/vim-flake8"]
 	path = bundle/vim-flake8
 	url = https://github.com/nvie/vim-flake8.git
-[submodule "vim-scala"]
-	path = vim-scala
-	url = https://github.com/derekwyatt/vim-scala.git
+[submodule "bundle/python-mode"]
+    path = bundle/python-mode
+	url = https://github.com/klen/python-mode.git
 [submodule "bundle/vim-scala"]
 	path = bundle/vim-scala
 	url = https://github.com/derekwyatt/vim-scala.git
