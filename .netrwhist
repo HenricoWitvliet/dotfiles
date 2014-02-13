@@ -1,0 +1,4 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_1='/Users/macbook/Downloads/tripwire-2.4.2.2-src/src/cryptlib'
+let g:netrw_dirhist_2='/Users/macbook/Downloads/fusepy/examples'
