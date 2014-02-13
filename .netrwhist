@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/Users/macbook/Downloads/jekyll_demo'
-let g:netrw_dirhist_2='/Users/macbook/Downloads/jekyll_demo/portfolio'
-let g:netrw_dirhist_3='/Users/macbook/.vim/bundle/snipmate-snippets/snippets'
-let g:netrw_dirhist_4='/home/henrico'
-let g:netrw_dirhist_5='/home/henrico/.rstudio-desktop'
-let g:netrw_dirhist_6='/home/henrico/.rstudio-desktop/log'

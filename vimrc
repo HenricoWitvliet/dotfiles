@@ -197,6 +197,9 @@ vnoremap > >gv
 set backupdir=$HOME/.vim/.temp//
 set directory=$HOME/.vim/.temp//
 
+" absolute numbers in insert, relative numbers everywhere else
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
 
 if has("gui_macvim")
     " kopieren van en naar clipboard
