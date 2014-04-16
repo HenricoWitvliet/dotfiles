@@ -197,6 +197,10 @@ vnoremap > >gv
 set backupdir=$HOME/.vim/.temp//
 set directory=$HOME/.vim/.temp//
 
+<<<<<<< HEAD
+" absolute numbers in insert, relative numbers everywhere else
+=======
+>>>>>>> 78ac7fcaa45e0c5823de9a6069fddffe712503d5
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
 
